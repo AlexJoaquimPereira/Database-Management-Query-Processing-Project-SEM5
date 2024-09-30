@@ -23,6 +23,9 @@ const SignUp = () => {
     } else if (!username) {
       setAlertMessage('Please enter a username');
       setModalVisible(true);
+    } else if (password.length() <= 8){
+      setAlertMessage('Create a password longer than 8 characters');
+      setModalVisible(true);
     } else if (!password || !recheckPassword) {
       setAlertMessage('Please enter your password');
       setModalVisible(true);
