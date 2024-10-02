@@ -4,6 +4,7 @@ import Button from "../components/ConnectifyButton";
 import CfyTextInput from '../components/ConnectifyTextInput';
 import ConnectifyAlert from '../components/ConnectifyAlert';
 import { Link } from "expo-router";
+import axios from 'axios'
 
 const SignUp = () => {
   const [email, setEmail] = useState('');
@@ -23,7 +24,7 @@ const SignUp = () => {
     } else if (!username) {
       setAlertMessage('Please enter a username');
       setModalVisible(true);
-    } else if (password.length() <= 8){
+    } else if (password.length <= 8){
       setAlertMessage('Create a password longer than 8 characters');
       setModalVisible(true);
     } else if (!password || !recheckPassword) {
@@ -37,6 +38,15 @@ const SignUp = () => {
       setAlertMessage('Sign up successful!');
       setModalVisible(true);
       // Here, you can add your API call to sign up the user
+      const userData ={
+        username, 
+        email,
+        password,
+      };
+      axios
+        .post("https://localhost:3000/api/auth/signup", userData)
+        .then(res => console.log(res.data))
+        .catch(e => console.log(e))
     }
   };
 
