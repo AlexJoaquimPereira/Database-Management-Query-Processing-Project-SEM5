@@ -1,3 +1,4 @@
+// app/(tabs)/BottomNavBar.jsx
 import React from 'react';
 import { View, TouchableOpacity, StyleSheet } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
@@ -10,34 +11,34 @@ const BottomNavBar = ({ activeRoute }) => {
     return (
         <View style={styles.navBar}>
             <TouchableOpacity
-                onPress={() => navigation.navigate('Feed')}
-                style={activeRoute === 'Feed' ? [styles.button, { backgroundColor: accentColor }] : styles.button}
+                onPress={() => navigation.navigate('feed')}
+                style={activeRoute === 'feed' ? [styles.button, { backgroundColor: accentColor }] : styles.button}
             >
-                <Icon name="home" size={30} color={activeRoute === 'Feed' ? "#FFFFFF" : "#1E1E1E"} />
+                <Icon name="home" size={30} color={activeRoute === 'feed' ? "#FFFFFF" : "#1E1E1E"} />
             </TouchableOpacity>
             <TouchableOpacity
-                onPress={() => navigation.navigate('Connection')}
-                style={activeRoute === 'Connection' ? [styles.button, { backgroundColor: accentColor }] : styles.button}
+                onPress={() => navigation.navigate('connection')}
+                style={activeRoute === 'connection' ? [styles.button, { backgroundColor: accentColor }] : styles.button}
             >
-                <Icon name="account-group" size={30} color={activeRoute === 'Connection' ? "#FFFFFF" : "#1E1E1E"} />
+                <Icon name="account-group" size={30} color={activeRoute === 'connection' ? "#FFFFFF" : "#1E1E1E"} />
             </TouchableOpacity>
             <TouchableOpacity
-                onPress={() => navigation.navigate('CreatePost')}
-                style={activeRoute === 'CreatePost' ? [styles.button, { backgroundColor: accentColor }] : styles.button}
+                onPress={() => navigation.navigate('createPost')}
+                style={activeRoute === 'createPost' ? [styles.button, { backgroundColor: accentColor }] : styles.button}
             >
-                <Icon name="plus-circle" size={30} color={activeRoute === 'CreatePost' ? "#FFFFFF" : "#1E1E1E"} />
+                <Icon name="plus-circle" size={30} color={activeRoute === 'createPost' ? "#FFFFFF" : "#1E1E1E"} />
             </TouchableOpacity>
             <TouchableOpacity
-                onPress={() => navigation.navigate('Notification')}
-                style={activeRoute === 'Notification' ? [styles.button, { backgroundColor: accentColor }] : styles.button}
+                onPress={() => navigation.navigate('notification')}
+                style={activeRoute === 'notification' ? [styles.button, { backgroundColor: accentColor }] : styles.button}
             >
-                <Icon name="bell" size={30} color={activeRoute === 'Notification' ? "#FFFFFF" : "#1E1E1E"} />
+                <Icon name="bell" size={30} color={activeRoute === 'notification' ? "#FFFFFF" : "#1E1E1E"} />
             </TouchableOpacity>
             <TouchableOpacity
-                onPress={() => navigation.navigate('Profile')}
-                style={activeRoute === 'Profile' ? [styles.button, { backgroundColor: accentColor }] : styles.button}
+                onPress={() => navigation.navigate('profile')}
+                style={activeRoute === 'profile' ? [styles.button, { backgroundColor: accentColor }] : styles.button}
             >
-                <Icon name="account" size={30} color={activeRoute === 'Profile' ? "#FFFFFF" : "#1E1E1E"} />
+                <Icon name="account" size={30} color={activeRoute === 'profile' ? "#FFFFFF" : "#1E1E1E"} />
             </TouchableOpacity>
         </View>
     );
