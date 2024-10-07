@@ -1,5 +1,3 @@
-// I made this for temporary situation
-
 import React, { useEffect, useState } from 'react';
 import { View, Text, Image, StyleSheet, ActivityIndicator } from 'react-native';
 import axios from 'axios';
@@ -12,7 +10,7 @@ const PostTemplate = ({ postId }) => {
     useEffect(() => {
         const fetchPost = async () => {
             try {
-                const response = await axios.get(`http://your-api-url.com/api/posts/${postId}`); // Replace with your Express API URL
+                const response = await axios.get(`http://your-api-url.com/api/posts/${postId}`);
                 setPost(response.data);
             } catch (err) {
                 setError(err.message);
@@ -34,10 +32,12 @@ const PostTemplate = ({ postId }) => {
 
     return (
         <View style={styles.postFrame}>
-            <Image
-                source={{ uri: post.image }} // Expecting the image URL from the API
-                style={styles.postImage}
-            />
+            {post.image ? (
+                <Image
+                    source={{ uri: post.image }}
+                    style={styles.postImage}
+                />
+            ) : null}
             <Text style={styles.title}>{post.title}</Text>
             <Text style={styles.date}>{new Date(post.date).toLocaleString()}</Text>
             <Text style={styles.content}>{post.content}</Text>
@@ -50,22 +50,22 @@ const PostTemplate = ({ postId }) => {
             </View>
             <View style={styles.likesContainer}>
                 <Image
-                    source={{ uri: 'thumbs_up_icon.png' }} // Replace with your like icon path
+                    source={{ uri: 'thumbs_up_icon.png' }}
                     style={styles.icon}
                 />
                 <Text style={styles.likesCount}>{post.likes}K</Text>
                 <Image
-                    source={{ uri: 'comments_icon.png' }} // Replace with your comments icon path
+                    source={{ uri: 'comments_icon.png' }}
                     style={styles.icon}
                 />
                 <Text style={styles.commentsCount}>{post.comments}K</Text>
                 <Image
-                    source={{ uri: 'share_icon.png' }} // Replace with your share icon path
+                    source={{ uri: 'share_icon.png' }}
                     style={styles.icon}
                 />
             </View>
             <Image
-                source={{ uri: post.profileImage }} // Expecting the profile image URL from the API
+                source={{ uri: post.profileImage }}
                 style={styles.profilePic}
             />
             <Text style={styles.userName}>{post.userName}</Text>
@@ -80,10 +80,7 @@ const styles = StyleSheet.create({
         borderRadius: 10,
         backgroundColor: '#FEFFFF',
         shadowColor: '#000',
-        shadowOffset: {
-            width: 0,
-            height: 1,
-        },
+        shadowOffset: { width: 0, height: 1 },
         shadowOpacity: 0.25,
         shadowRadius: 4,
         padding: 10,
